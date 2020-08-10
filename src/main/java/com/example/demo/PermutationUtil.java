@@ -3,7 +3,6 @@ package com.example.demo;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 
 /**
@@ -16,26 +15,15 @@ public class PermutationUtil {
             return singletonList(letter);
         }
         List<String> permutations = new ArrayList<String>();
-        if (letter.length() == 2) {
-            for (int i = 0; i < 2; i++) {
-                for (String restPermutation : listAllPermutation(subtractOneCharByIndex(letter, i))) {
-                    permutations.add(letter.charAt(i) + restPermutation);
-                }
+        for (int index = 0; index < letter.length(); index++) {
+            for (String restPermutation : listAllPermutation(subtractOneCharByIndex(letter, index))) {
+                permutations.add(letter.charAt(index) + restPermutation);
             }
-            return permutations;
         }
-        if (letter.length() == 3) {
-            for (int i = 0; i < 3; i++) {
-                for (String restPermutation : listAllPermutation(subtractOneCharByIndex(letter, i))) {
-                    permutations.add(letter.charAt(i) + restPermutation);
-                }
-            }
-            return permutations;
-        }
-        return singletonList(letter);
+        return permutations;
     }
 
-    private static String subtractOneCharByIndex(String letter, int i) {
-        return letter.substring(0, i) + letter.substring(i + 1);
+    private static String subtractOneCharByIndex(String letter, int index) {
+        return letter.substring(0, index) + letter.substring(index + 1);
     }
 }
