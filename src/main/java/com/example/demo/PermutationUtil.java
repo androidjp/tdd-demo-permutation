@@ -1,8 +1,8 @@
 package com.example.demo;
 
-import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 
 /**
@@ -14,6 +14,6 @@ public class PermutationUtil {
         if (letter.length() == 1) {
             return singletonList(letter);
         }
-        return Arrays.asList(letter, letter.substring(1, 2) + letter.substring(0, 1));
+        return asList(letter, letter.substring(1, 2) + letter.substring(0, 1));
     }
 }

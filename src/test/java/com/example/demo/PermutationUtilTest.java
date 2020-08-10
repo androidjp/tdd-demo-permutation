@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,6 +27,6 @@ class PermutationUtilTest {
         // when
         final List<String> permutations = PermutationUtil.listAllPermutation(letter);
         // then
-        assertThat(permutations).isEqualTo(Arrays.asList("ab", "ba"));
+        assertThat(permutations).isEqualTo(asList("ab", "ba"));
     }
 }
