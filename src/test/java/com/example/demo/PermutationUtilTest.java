@@ -21,12 +21,22 @@ class PermutationUtilTest {
     }
 
     @Test
-    public void should_return_ab_ba_when_listAllPermutation_given_one_letter_ab() {
+    public void should_return_ab_ba_when_listAllPermutation_given_two_letter_ab() {
         // given
         String letter = "ab";
         // when
         final List<String> permutations = PermutationUtil.listAllPermutation(letter);
         // then
         assertThat(permutations).isEqualTo(asList("ab", "ba"));
+    }
+
+    @Test
+    public void should_return_abc_acb_bac_bca_cab_cba_when_listAllPermutation_given_three_letter_abc() {
+        // given
+        String letter = "abc";
+        // when
+        final List<String> permutations = PermutationUtil.listAllPermutation(letter);
+        // then
+        assertThat(permutations).isEqualTo(asList("abc", "acb", "bac", "bca", "cab", "cba"));
     }
 }
