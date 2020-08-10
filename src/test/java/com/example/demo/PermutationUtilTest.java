@@ -39,4 +39,16 @@ class PermutationUtilTest {
         // then
         assertThat(permutations).isEqualTo(asList("abc", "acb", "bac", "bca", "cab", "cba"));
     }
+
+    @Test
+    public void should_return_size_24_when_listAllPermutation_given_four_letter_abcd() {
+        // given
+        String letter = "abcd";
+        // when
+        final List<String> permutations = PermutationUtil.listAllPermutation(letter);
+        // then
+        assertThat(permutations.size()).isEqualTo(24);
+    }
+
+
 }
