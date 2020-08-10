@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
+import static java.util.stream.IntStream.range;
 
 /**
  * @author Jasper Wu
@@ -14,12 +15,10 @@ public class PermutationUtil {
         if (letter.length() == 1) {
             return singletonList(letter);
         }
-        List<String> permutations = new ArrayList<String>();
-        for (int index = 0; index < letter.length(); index++) {
-            for (String restPermutation : listAllPermutation(subtractOneCharByIndex(letter, index))) {
-                permutations.add(letter.charAt(index) + restPermutation);
-            }
-        }
+        List<String> permutations = new ArrayList<>();
+        range(0, letter.length())
+                .forEach(index -> listAllPermutation(subtractOneCharByIndex(letter, index))
+                        .stream().map(restStr -> letter.charAt(index) + restStr).forEach(permutations::add));
         return permutations;
     }
 
